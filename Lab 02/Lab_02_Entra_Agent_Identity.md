@@ -1,4 +1,4 @@
----
+<!--
 lab:
   title: 'Lab 02: Entra Agent Identity Configuration and Monitoring'
   description: In this lab, you located all three Zava agent identities in the Microsoft Entra admin center using the Agent ID left navigation entry. You reviewed the Zava Finance Agent identity overview, confirming its Active status, Blueprint ID, Object ID, and the current absence of assigned owners. You assigned Patti Fernandes as owner of the Zava Finance Agent identity to establish accountability within the Entra governance model. You reviewed the agent identity's current permissions and Entra roles, confirming zero standing access as expected in a least-privilege deployment.
@@ -7,7 +7,7 @@ lab:
   islab: true
   primarytopics:
     - Microsoft Entra
----
+-->
 
 # Lab 02: Entra Agent Identity Configuration and Monitoring
 
@@ -19,9 +19,9 @@ Every Copilot Studio agent deployed in the Zava environment was automatically as
 
 In this lab, MOD Administrator will locate the Zava agent identities, review their current configuration, assign Patti Fernandes as owner of the Zava Finance Agent, and disable and re-enable the Zava HR Assistant identity to simulate an identity quarantine action.
 
----
 
-## Objectives
+
+### Objectives
 
 - Locate all Zava agent identities in the Microsoft Entra admin center via Entra agents.
 - Review agent identity metadata including Status, Sponsors, Owners, Blueprint ID, Object ID, and Created on date.
@@ -32,86 +32,91 @@ In this lab, MOD Administrator will locate the Zava agent identities, review the
 - Disable the Zava HR Assistant identity and verify that end-user access is blocked.
 - Re-enable the Zava HR Assistant identity and confirm it returns to Active status.
 
----
+
+
 
 ## Lab Duration
 
 Estimated time: **10 minutes**
 
----
+
 
 ## Exercise 1: Locate and Inspect the Zava Finance Agent Identity
 
 ### Task 1: Navigate to Entra Agent Identities
 
-1. Open a browser and navigate to `https://entra.microsoft.com`. Sign in with **MOD Administrator** credentials if prompted.
+1. Open a browser and navigate to +++https://entra.microsoft.com+++. Sign in with **MOD Administrator** credentials if prompted.
 
-2. In the left navigation pane, select **Agent ID**. On the **All agent identities (Preview)** page, review the list of agent identities registered in the tenant.
+1. In the left navigation pane, select **Agent ID**. On the **All agent identities (Preview)** page, review the list of agent identities registered in the tenant.
 
-	![](./media/image1.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image1.png)
 
-3. Confirm that the following three agents appear in the list:
+1. Confirm that the following three agents appear in the list:
 
-   | Display Name | Status |
-   |---|---|
-   | Zava HR Assistant (Microsoft Copilot Studio) | Active |
-   | Zava Finance Agent (Microsoft Copilot Studio) | Active |
-   | Zava IT Support Agent (Microsoft Copilot Studio) | Active |
+    | Display Name | Status |
+    |||
+    | Zava HR Assistant (Microsoft Copilot Studio) | Active |
+    | Zava Finance Agent (Microsoft Copilot Studio) | Active |
+    | Zava IT Support Agent (Microsoft Copilot Studio) | Active |
 
-	![](./media/image2.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image2.png)
 
-   > **Note:** Agent identities are suffixed with **(Microsoft Copilot Studio)** to indicate the platform that provisioned them. If any agent is not listed, wait five minutes and refresh the page. Agent identity provisioning can take time after initial publishing in Copilot Studio.
+    >[!Note] Agent identities are suffixed with **(Microsoft Copilot Studio)** to indicate the platform that provisioned them. If any agent is not listed, wait five minutes and refresh the page. Agent identity provisioning can take time after initial publishing in Copilot Studio.
 
----
+    
+
 
 ### Task 2: Review the Zava Finance Agent Identity Overview
 
 1. On the **All agent identities (Preview)** page, select **Zava Finance Agent (Microsoft Copilot Studio)**.
 
-	![](./media/image3.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image3.png)
 
-2. On the **Overview (Preview)** page, review and note the following fields:
+1. On the **Overview (Preview)** page, review and note the following fields:
 
-   - **Status** — confirm it reads **Active**.
-   - **Sponsors** — note the user avatars currently listed as sponsors.
-   - **Owners** — confirm the current value. Note whether an owner is assigned or whether the field shows a dash ( **-** ), indicating no owner is set.
-   - **Blueprint ID** — note the GUID value.
-   - **Object ID** — note the GUID value.
-   - **Agent blueprint** — note the link text (Microsoft Copilot Studio agent identity).
-   - **Created on** — note the date.
+    - **Status** — confirm it reads **Active**.
+    - **Sponsors** — note the user avatars currently listed as sponsors.
+    - **Owners** — confirm the current value. Note whether an owner is assigned or whether the field shows a dash ( **-** ), indicating no owner is set.
+    - **Blueprint ID** — note the GUID value.
+    - **Object ID** — note the GUID value.
+    - **Agent blueprint** — note the link text (Microsoft Copilot Studio agent identity).
+    - **Created on** — note the date.
 
-3. On the right panel, under **Agent identity's access**, note the current values for:
 
-   - **Permissions**
-   - **Entra roles**
+1. On the right panel, under **Agent identity's access**, note the current values for:
 
-	![](./media/image4.png)
+    - **Permissions**
+    - **Entra roles**
 
-   > **Note:** In a newly provisioned environment, both values will show **0**. This confirms that the Zava Finance Agent identity has not been granted any API permissions or Entra directory roles, which is the expected least-privilege starting state.
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image4.png)
 
----
+    >[!Note] In a newly provisioned environment, both values will show **0**. This confirms that the Zava Finance Agent identity has not been granted any API permissions or Entra directory roles, which is the expected least-privilege starting state.
+
+    
+
 
 ### Task 3: Assign Patti Fernandes as Owner of the Zava Finance Agent Identity
 
 1. In the left sub-navigation of the Zava Finance Agent identity page, under **Access**, select **Owners and sponsors (Preview)**.
 
-	![](./media/image5.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image5.png)
 
-2. On the **Owners and sponsors** page, confirm that no owners are currently listed. Select **+ Add** > **Add owner**.
+1. On the **Owners and sponsors** page, confirm that no owners are currently listed. Select **+ Add** > **Add owner**.
 
-	![](./media/image6.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image6.png)
 
-3. In the search field on the **Add owners** panel, enter `Patti`. Select **Patti Fernandes** from the results. Select **Select** to confirm.
+1. In the search field on the **Add owners** panel, enter `Patti`. Select **Patti Fernandes** from the results. Select **Select** to confirm.
 
-	![](./media/image7.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image7.png)
 
-4. Confirm that **Patti Fernandes** now appears as the **Owner** on the **Owners and sponsors** page.
+1. Confirm that **Patti Fernandes** now appears as the **Owner** on the **Owners and sponsors** page.
 
-	![](./media/image8.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image8.png)
 
-   > **Note:** Assigning an owner to an agent identity establishes accountability for that identity within the Entra governance model. Owners receive access review notifications and are responsible for attesting to the identity's continued need and appropriate access.
+    >[!Note] Assigning an owner to an agent identity establishes accountability for that identity within the Entra governance model. Owners receive access review notifications and are responsible for attesting to the identity's continued need and appropriate access.
 
----
+    
+
 
 ## Exercise 2: Disable and Re-enable the Zava HR Assistant
 
@@ -119,61 +124,64 @@ Estimated time: **10 minutes**
 
 1. On the **All agent identities (Preview)** page in Microsoft Entra, navigate to the **Zava HR Assistant** agent identity overview page.
 
-	![](./media/image9.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image9.png)
 
-2. In the toolbar at the top of the page, select **Disable**.
+1. In the toolbar at the top of the page, select **Disable**.
 
-	![](./media/image10.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image10.png)
 
-3. In the confirmation dialog, confirm the action to disable the identity.
+1. In the confirmation dialog, confirm the action to disable the identity.
 
-	![](./media/image11.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image11.png)
 
-4. Wait for the page to refresh.
+1. Wait for the page to refresh.
 
-5. On the **Overview (Preview)** page, confirm that **Status** now reads **Disabled**.
+1. On the **Overview (Preview)** page, confirm that **Status** now reads **Disabled**.
 
-	![](./media/image12.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image12.png)
 
----
+    
+
 
 ### Task 2: Verify that End-User Access is Blocked
 
-1. Open a new **InPrivate** or **Incognito** browser window. Navigate to `https://copilot.microsoft.com`. Sign in with **MOD Administrator** credentials from the **Resources** tab.
+1. Open a new **InPrivate** or **Incognito** browser window. Navigate to +++https://copilot.microsoft.com+++. Sign in with **MOD Administrator** credentials from the **Resources** tab.
 
-2. In the left navigation, select **All agents** and then search for `Zava`.
+1. In the left navigation, select **All agents** and then search for `Zava`.
 
-3. Note the results — the agent **Zava HR Assistant** should not be visible.
+1. Note the results — the agent **Zava HR Assistant** should not be visible.
 
-   > **Note:** Identity disable propagation may take up to five minutes. If the agent responds normally immediately after disabling, wait three to five minutes and attempt again. Do not proceed to Task 3 until the agent is confirmed unavailable.
+    >[!Note] Identity disable propagation may take up to five minutes. If the agent responds normally immediately after disabling, wait three to five minutes and attempt again. Do not proceed to Task 3 until the agent is confirmed unavailable.
 
----
+    
+
 
 ### Task 3: Re-enable the Zava HR Assistant Identity
 
 1. Return to the **MOD Administrator** browser session at `https://entra.microsoft.com`.
 
-2. In the left navigation pane, select **Agent ID**. On the **All agent identities (Preview)** page, select **Zava HR Assistant (Microsoft Copilot Studio)**.
+1. In the left navigation pane, select **Agent ID**. On the **All agent identities (Preview)** page, select **Zava HR Assistant (Microsoft Copilot Studio)**.
 
-3. On the **Overview (Preview)** page, in the toolbar, select **Enable**.
+1. On the **Overview (Preview)** page, in the toolbar, select **Enable**.
 
-	![](./media/image13.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image13.png)
 
-   > **Note:** The toolbar button will have changed from **Disable** to **Enable** after the identity was disabled in Task 1.
+    >[!Note] The toolbar button will have changed from **Disable** to **Enable** after the identity was disabled in Task 1.
 
-4. In the confirmation dialog, confirm the action to enable the identity.
+1. In the confirmation dialog, confirm the action to enable the identity.
 
-	![](./media/image14.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image14.png)
 
-5. Wait for the page to refresh.
+1. Wait for the page to refresh.
 
-6. On the **Overview (Preview)** page, confirm that **Status** now reads **Active**.
+1. On the **Overview (Preview)** page, confirm that **Status** now reads **Active**.
 
-	![](./media/image15.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/scrtyAIcpltagntsdepth/refs/heads/main/Lab%2002/media/image15.png)
 
-7. Repeat the end-user access check to confirm the agent is accessible again.
+1. Repeat the end-user access check to confirm the agent is accessible again.
 
----
+    
+
 
 ## Summary
 
